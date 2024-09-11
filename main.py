@@ -1,16 +1,22 @@
 import requests
+import datetime
 
-data = input('Введите дату в формате гггг-мм-дд чтобы узнать сколько стоила акция в этот день')
+dt_now = datetime.datetime.now()
+dt_now = str(dt_now).split(' ')[0]
 
-a = requests.get(
-    f'https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/SBERP.json?from={data}&till={data}').json()
-f = True
-for i in a:
-    if f:
+
+def prise(dataopen, dataclose):
+    a = requests.get(
+        f'https://iss.moex.com/iss/history/engines/stock/markets/shares/'
+        f'boards/TQBR/securities/SBERP.json?from={dataopen}&till={dataclose}').json()
+    ansopen = []
+    ansclose = []
+    for i in a:
         b = a['history']
         deta = b['data']
         for j in deta:
-            print(j)
-            print(f'Акция: {j[3]} \n Дата:{j[1]}\n Цена открытия {j[7]} \n цена закрытия {j[11]}')
-            f = False
-            break
+            ansopen.append(j[7])
+            ansclose.append(j[11])
+    return ansopen[0], ansclose[-1]
+
+print(prise('2024-05-01', '2024-09-01'))
