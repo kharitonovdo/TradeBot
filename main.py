@@ -1,37 +1,32 @@
-import requests
-import datetime
-from dateutil.relativedelta import relativedelta
+import telebot
+import The_smart_part
 
-dt_now = datetime.datetime.now()
-dt_now = str(dt_now).split(' ')[0]
+bot = telebot.TeleBot('7224983182:AAHeT5I3WIhUIqnYOs6fUwhZXINi6wtpAIo');
 
 
-def prise(dataopen, dataclose):
-    a = requests.get(
-        f'https://iss.moex.com/iss/history/engines/stock/markets/shares/'
-        f'boards/TQBR/securities/SBERP.json?from={dataopen}&till={dataclose}').json()
-    ansopen = []
-    ansclose = []
-    for i in a:
-        b = a['history']
-        deta = b['data']
-        for j in deta:
-            ansopen.append(j[7])
-            ansclose.append(j[11])
-    return ansopen[0], ansclose[-1]
+@bot.message_handler(commands=['start'])
+def welcome(message):
+    chat_id = message.chat.id
+    keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+    button_support = telebot.types.KeyboardButton(text="Начать анализ")
+    button1 = telebot.types.KeyboardButton(text="поддержать автора")
+    keyboard.add(button_support, button1)
 
-print(prise('2024-05-01', '2024-09-01'))
-def comparison(dt, mon):
-    dt_sps = list(map(int, dt.split('-')))
-    first = datetime.datetime(dt_sps[0], dt_sps[1], 1)
-    second = str(first - relativedelta(months=mon)).split()[0]
-    return second
-print(comparison(dt_now, 1))
-
-def main(dn):
-    candle3 = prise(comparison(dn, 3), comparison(dn, 2))
-    print(candle3)
-    print(candle3[0], candle3[-1])
-print(main(dt_now))
+    bot.send_message(chat_id,
+                     'Добро пожаловать в бота который подскажет Вам стоит ли покупать акцию',
+                     reply_markup=keyboard)
 
 
+@bot.message_handler(content_types=['text'])
+def get_text_messages(message):
+
+    if message.text == 'Начать анализ':
+        bot.send_message(message.from_user.id, text='@' + message.from_user.first_name)
+        question = 'давай начнем торговлю нужно ' + The_smart_part.main(The_smart_part.dt_now)
+        bot.send_message(message.from_user.id, text=question)
+    if message.text == 'поддержать автора':
+        question = '+79914010490'
+        bot.send_message(message.from_user.id, text=question)
+
+
+bot.polling(none_stop=True, interval=0)
