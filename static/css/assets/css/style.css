@@ -1,0 +1,9 @@
+@media (max-width: 500px) {
+  span { font-size: 30px; }
+  nav {width : 100%;}
+  p { font-size: 25px;}
+  label { font-size: 25px;}
+}
+@media (min-width: 500px) {
+      label { font-size: 50px;}
+}
