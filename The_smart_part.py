@@ -20,15 +20,31 @@ def prise(dataopen, dataclose):
             ansclose.append(j[11])
     return ansopen[0], ansclose[-1]
 
+
 print(prise('2024-05-01', '2024-09-01'))
+
+
 def comparison(dt, mon):
+    '''Эта функция берет сегодня время и вычитает кол-во месяцев'''
     dt_sps = list(map(int, dt.split('-')))
     first = datetime.datetime(dt_sps[0], dt_sps[1], 1)
     second = str(first - relativedelta(months=mon)).split()[0]
     return second
+
+
 print(comparison(dt_now, 1))
 
+
 def main(dn):
-    candle3 = prise(comparison(dn, 3), comparison(dn, 2))
-    return 'покупать'
+    candle3 = prise(comparison(dn, 4), comparison(dn, 3))
+    candle2 = prise(comparison(dn, 3), comparison(dn, 2))
+    candle1 = prise(comparison(dn, 2), comparison(dn, 1))
+    print(candle3, candle2, candle1)
+    f = False
+
+    if f:
+        return 'покупаем'
+    return 'ждём'
+
+
 print(main(dt_now))

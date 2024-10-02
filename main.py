@@ -9,10 +9,15 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/invest.html')
+@app.route('/buy')
+def buy():
+    return render_template('buy.html', result=The_smart_part.main(The_smart_part.dt_now))
+
+
+@app.route('/invest')
 def invest():
     return render_template('invest.html')
 
 
 if __name__ == '__main__':
-    app.run(port=8080, host='127.0.0.1')
+    app.run(port=60000, host='0.0.0.0')
