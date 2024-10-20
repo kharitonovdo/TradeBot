@@ -1,12 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@581&display=swap');
+
+
 @media (max-width: 500px) {
   span { font-size: 30px; }
   nav {width : 100%;}
   p { font-size: 25px;}
   label { font-size: 25px;}
+  .masthead {background-attachment: fixed;}
 }
 @media (min-width: 500px) {
       label { font-size: 50px;}
+      #headdder {background-attachment: fixed;}
+      
 }
+
+
 
 .butn {
   font-size: 20px;
@@ -58,10 +67,10 @@ button:active {
   transform: scale(0.9);
 }
 
-        .gradient-custom {
-            background: linear-gradient(to bottom right, white, blue, red)
+.gradient-custom {
+  background: linear-gradient(to bottom right, white, blue, red)
         }
-  .card-registration .select-input.form-control[readonly]:not([disabled]) {
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
   font-size: 1rem;
   line-height: 2.15;
   padding-left: .75em;

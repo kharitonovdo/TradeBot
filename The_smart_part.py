@@ -21,7 +21,7 @@ def prise(dataopen, dataclose):
     return ansopen[0], ansclose[-1]
 
 
-print(prise('2024-05-01', '2024-09-01'))
+print(prise('2024-08-01', '2024-09-01'))
 
 
 def comparison(dt, mon):
@@ -36,15 +36,15 @@ print(comparison(dt_now, 1))
 
 
 def main(dn):
-    candle3 = prise(comparison(dn, 4), comparison(dn, 3))
-    candle2 = prise(comparison(dn, 3), comparison(dn, 2))
-    candle1 = prise(comparison(dn, 2), comparison(dn, 1))
+    candle3 = prise(comparison(dn, 3), comparison(dn, 2))
+    candle2 = prise(comparison(dn, 2), comparison(dn, 1))
+    candle1 = prise(comparison(dn, 1), comparison(dn, 0))
     print(candle3, candle2, candle1)
-    f = False
-
-    if f:
-        return 'покупаем'
-    return 'ждём'
+    if candle3[0] > candle2[0] and candle2[0] > candle1[0]:
+        return 'Нисходящий тренд' 
+    elif abs(candle3[0] - candle2[0]) <= 10 and abs(candle2[0] - candle1[0]) <= 10:
+        return 'Боковой тренд'
+    return 'Восходящий тренд'
 
 
 print(main(dt_now))

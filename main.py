@@ -14,9 +14,7 @@ def buy():
     return render_template('buy.html', result=The_smart_part.main(The_smart_part.dt_now))
 
 
-@app.route('/invest')
-def invest():
-    return render_template('invest.html')
+
 
 
 if __name__ == '__main__':
