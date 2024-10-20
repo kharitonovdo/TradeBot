@@ -12,13 +12,15 @@ def prise(dataopen, dataclose):
         f'boards/TQBR/securities/SBERP.json?from={dataopen}&till={dataclose}').json()
     ansopen = []
     ansclose = []
+    sps_stock = []
     for i in a:
         b = a['history']
         deta = b['data']
         for j in deta:
-            ansopen.append(j[7])
+            sps_stock.append(j[3])
+            ansopen.append(j[6])
             ansclose.append(j[11])
-    return ansopen[0], ansclose[-1]
+    return ansopen[0], ansclose[-1], sps_stock[0]
 
 
 print(prise('2024-08-01', '2024-09-01'))
@@ -40,10 +42,10 @@ def main(dn):
     candle2 = prise(comparison(dn, 2), comparison(dn, 1))
     candle1 = prise(comparison(dn, 1), comparison(dn, 0))
     print(candle3, candle2, candle1)
-    if candle3[0] > candle2[0] and candle2[0] > candle1[0]:
-        return 'Нисходящий тренд' 
-    elif abs(candle3[0] - candle2[0]) <= 10 and abs(candle2[0] - candle1[0]) <= 10:
+    if abs(candle3[0] - candle2[0]) <= 10 and abs(candle2[0] - candle1[0]) <= 10:
         return 'Боковой тренд'
+    if candle3[0] > candle2[0] and candle2[0] > candle1[0] or candle3[1] > candle2[1]:
+        return 'Нисходящий тренд'
     return 'Восходящий тренд'
 
 
