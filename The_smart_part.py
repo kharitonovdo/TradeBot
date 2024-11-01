@@ -9,7 +9,7 @@ dt_now = str(dt_now).split(' ')[0]
 def prise(dataopen, dataclose):
     a = requests.get(
         f'https://iss.moex.com/iss/history/engines/stock/markets/shares/'
-        f'boards/TQBR/securities/LKOH.json?from={dataopen}&till={dataclose}').json()
+        f'boards/TQBR/securities/SBERP.json?from={dataopen}&till={dataclose}').json()
     ansopen = []
     ansclose = []
     sps_stock = []
