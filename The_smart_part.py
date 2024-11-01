@@ -9,7 +9,7 @@ dt_now = str(dt_now).split(' ')[0]
 def prise(dataopen, dataclose):
     a = requests.get(
         f'https://iss.moex.com/iss/history/engines/stock/markets/shares/'
-        f'boards/TQBR/securities/SBERP.json?from={dataopen}&till={dataclose}').json()
+        f'boards/TQBR/securities/LKOH.json?from={dataopen}&till={dataclose}').json()
     ansopen = []
     ansclose = []
     sps_stock = []
@@ -23,7 +23,7 @@ def prise(dataopen, dataclose):
     return ansopen[0], ansclose[-1], sps_stock[0]
 
 
-print(prise('2024-08-01', '2024-09-01'))
+print(prise('2024-06-01', '2024-09-01'))
 
 
 def comparison(dt, mon):
@@ -42,10 +42,10 @@ def main(dn):
     candle2 = prise(comparison(dn, 2), comparison(dn, 1))
     candle1 = prise(comparison(dn, 1), comparison(dn, 0))
     print(candle3, candle2, candle1)
+    if candle3[0] > candle2[0] and candle3[0] > candle1[0] or candle3[1] > candle1[1]:
+        return 'Нисходящий тренд'
     if abs(candle3[0] - candle2[0]) <= 10 and abs(candle2[0] - candle1[0]) <= 10:
         return 'Боковой тренд'
-    if candle3[0] > candle2[0] and candle2[0] > candle1[0] or candle3[1] > candle2[1]:
-        return 'Нисходящий тренд'
     return 'Восходящий тренд'
 
 
