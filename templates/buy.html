@@ -8,16 +8,31 @@
     <title>Анализ акции</title>
 </head>
 <body>
-    <section class="vh-100 gradient-custom">
-        <div class="container py-5 h-100">
-          <div class="row justify-content-center align-items-center h-100">
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
             <div class="col-12 col-lg-9 col-xl-7">
-              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-                <center><div class="my-4">СБЕРБАНК РОССИИ ПАО - ПРИВ. </div></center>
-                 <center><div>В данный момент: {{ result }}</div></center>
-                <center><a style='text-decoration: none;' href="/"><button class="my-4">
-                  <span class="text">Вернуться на главную</span></button></a></center>
-        </div>
-      </section>
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <form method=post enctype=multipart/form-data>
+                        <div class="input-group mb-3">
+                            <input type="text"  name=patern class="form-control" placeholder="Введите SHORTNAME"
+                                   aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input type=submit class="btn btn-outline-secondary"  value=Загрузить>
+                        </div>
+                    <center>
+                        <div class="my-4">{{ name }}</div>
+                    </center>
+                    </form>
+
+
+                    <center>
+                        <div>В данный момент: {{ result }}</div>
+                    </center>
+                    <center><a style='text-decoration: none;' href="/">
+                        <button class="my-4">
+                            <span class="text">Вернуться на главную</span></button>
+                    </a></center>
+                </div>
+</section>
 </body>
 </html>
