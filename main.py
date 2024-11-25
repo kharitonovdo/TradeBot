@@ -12,12 +12,15 @@ def index():
 @app.route('/buy', methods=['POST', 'GET'])
 def buy():
     if request.method == 'POST':
-        #try:
-        return render_template('buy.html', result=The_smart_part.main(The_smart_part.dt_now, request.form.get("patern")[0]),
-                               name=The_smart_part.main(The_smart_part.dt_now, request.form.get("patern")))
-        # except Exception:
-        #     return redirect('abort')
-    return render_template('buy.html', result=The_smart_part.main(The_smart_part.dt_now)[0], name=The_smart_part.main(The_smart_part.dt_now)[1])
+        try:
+            return render_template('buy.html',
+                                   result=The_smart_part.main(The_smart_part.dt_now, request.form.get("patern"))[0],
+                                   name=The_smart_part.main(The_smart_part.dt_now, request.form.get("patern"))[1])
+        except Exception:
+            return redirect("abort")
+    return render_template('buy.html', result=The_smart_part.main(The_smart_part.dt_now)[0],
+                               name=The_smart_part.main(The_smart_part.dt_now)[1])
+
 
 @app.route('/abort')
 def abort():

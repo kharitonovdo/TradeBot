@@ -34,10 +34,9 @@ def comparison(dt, mon):
     return second
 
 
-print(comparison(dt_now, 1))
-
 
 def main(dn, patern='SBERP'):
+    print(prise(comparison(dn, 3), comparison(dn, 2), patern))
     candle3 = prise(comparison(dn, 3), comparison(dn, 2), patern)[:-1]
     candle2 = prise(comparison(dn, 2), comparison(dn, 1), patern)[:-1]
     candle1 = prise(comparison(dn, 1), comparison(dn, 0), patern)
