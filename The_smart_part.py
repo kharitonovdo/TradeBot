@@ -45,7 +45,7 @@ def main(dn, patern='SBERP'):
     print(candle3, candle2, candle1)
     if candle3[0] > candle2[0] and candle3[0] > candle1[0] or candle3[1] > candle1[1]:
         return 'Нисходящий тренд', name
-    if abs(candle3[0] - candle2[0]) <= 10 and abs(candle2[0] - candle1[0]) <= 10:
+    if abs(candle3[0] - candle2[0]) <= (candle3[0] // 5) and abs(candle2[0] - candle1[0]) <= (candle3[0] // 5):
         return 'Боковой тренд', name
     return 'Восходящий тренд', name
 
