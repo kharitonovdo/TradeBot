@@ -15,7 +15,7 @@ def buy():
         try:
             return render_template('buy.html',
                                    result=The_smart_part.main(The_smart_part.dt_now, request.form.get("patern"))[0],
-                                   name=The_smart_part.main(The_smart_part.dt_now, request.form.get("patern"))[1])
+                                   name=The_smart_part.main(The_smart_part.dt_now, request.form.get("patern"))[1].replace(' ',''))
         except Exception:
             return redirect("abort")
     return render_template('buy.html', result=The_smart_part.main(The_smart_part.dt_now)[0],

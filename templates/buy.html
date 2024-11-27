@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./static/css/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./static/css/assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <title>Анализ акции</title>
 </head>
 <body>
@@ -12,16 +17,17 @@
     <div class="container py-5 h-100">
         <div class="row justify-content-center align-items-center h-100">
             <div class="col-12 col-lg-9 col-xl-7">
-                <div class="card shadow-2-strong card-registration" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+                <div class="card shadow-2-strong card-registration"
+                     style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
                     <form method=post enctype=multipart/form-data>
                         <div class="input-group mb-3">
-                            <input type="text"  name=patern class="form-control" placeholder="Введите SHORTNAME"
+                            <input type="text" name=patern class="form-control" placeholder="Введите SHORTNAME"
                                    aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <input type=submit class="btn btn-outline-secondary"  value=Загрузить>
+                            <input type=submit class="btn btn-outline-secondary" value=Загрузить>
                         </div>
-                    <center>
-                        <div class="my-4">{{ name }}</div>
-                    </center>
+                        <center>
+                            <div class="my-4">{{ name }}</div>
+                        </center>
                     </form>
                     <center>
                         <div>В данный момент: {{ result }}</div>
@@ -30,7 +36,229 @@
                         <button class="my-4">
                             <span class="text">На главную</span></button>
                     </a></center>
-                </div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                        Launch static backdrop modal
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Список SHORTNAME</h1>
+                                </div>
+                                <div class="modal-body">
+ABIO - iАРТГЕН ао<br>
+ABRD - АбрауДюрсо<br>
+ACKO - АСКО ао<br>
+AFKS - Система ао<br>
+AFLT - Аэрофлот<br>
+AGRO - AGRO-гдр<br>
+AKRN - Акрон<br>
+ALRS - АЛРОСА ао<br>
+AMEZ - АшинскийМЗ<br>
+APRI - АПРИ<br>
+APTK - Аптеки36и6<br>
+AQUA - ИНАРКТИКА<br>
+ARSA - Арсагера<br>
+ASSB - АстрЭнСб<br>
+ASTR - Астра ао<br>
+AVAN - Авангрд-ао<br>
+BANE - Башнефт ао<br>
+BANEP - Башнефт ап<br>
+BELU - НоваБев ао<br>
+BISVP - БашИнСв ап<br>
+BRZL - БурЗолото<br>
+BSPB - БСП ао<br>
+BSPBP - БСП ап<br>
+CARM - СТГ<br>
+CBOM - МКБ ао<br>
+CHGZ - РН-ЗапСиб<br>
+CHKZ - ЧКПЗ ао<br>
+CHMF - СевСт-ао<br>
+CHMK - ЧМК ао<br>
+CIAN - CIAN-адр<br>
+CNTL - Телеграф<br>
+CNTLP - Телеграф-п<br>
+DATA - iАренадата<br>
+DELI - iКаршеринг<br>
+DIAS - iДиасофт<br>
+DIOD - ЗаводДИОД<br>
+DVEC - ДЭК ао<br>
+DZRD - ДонскЗР<br>
+DZRDP - ДонскЗР п<br>
+EELT - ЕвроЭлтех<br>
+ELFV - ЭЛ5Энер ао<br>
+ELMT - Элемент<br>
+ENPG - ЭН+ГРУП ао<br>
+ETLN - ETLN-гдр<br>
+EUTR - ЕвроТранс<br>
+FEES - Россети<br>
+FESH - ДВМП ао<br>
+FIXP - FIXP-гдр<br>
+FLOT - Совкомфлот<br>
+GAZC - ГАЗКОН-ао<br>
+GAZP - ГАЗПРОМ ао<br>
+GAZS - ГАЗ-сервис<br>
+GAZT - ГАЗ-Тек ао<br>
+GCHE - ЧеркизГ-ао<br>
+GECO - iГЕНЕТИКО<br>
+GEMA - iММЦБ ао<br>
+GEMC - МКПАО ЮМГ<br>
+GMKN - ГМКНорНик<br>
+GTRK - ГТМ ао<br>
+HEAD - Хэдхантер<br>
+HIMCP - Химпром ап<br>
+HNFG - ХЭНДЕРСОН<br>
+HYDR - РусГидро<br>
+IGST - Ижсталь2ао<br>
+IGSTP - Ижсталь ап<br>
+INGR - ИНГРАД ао<br>
+IRAO - ИнтерРАОао<br>
+IRKT - Яковлев-3<br>
+IVAT - iИВА<br>
+JNOS - Славн-ЯНОС<br>
+JNOSP - Слав-ЯНОСп<br>
+KAZT - Куйбазот<br>
+KAZTP - Куйбазот-п<br>
+KBSB - ТНСэКубань<br>
+KCHE - КамчатЭ ао<br>
+KCHEP - КамчатЭ ап<br>
+KGKC - КурганГКао<br>
+KGKCP - КурганГКап<br>
+KLSB - КалужскСК<br>
+KLVZ - Кристалл<br>
+KMAZ - КАМАЗ<br>
+KMEZ - КМЗ<br>
+KOGK - КоршГОК ао<br>
+KRKN - СаратНПЗ<br>
+KRKNP - СаратНПЗ-п<br>
+KRKOP - ТКЗКК ап<br>
+KROT - КрасОкт-ао<br>
+KROTP - КрасОкт-1п<br>
+KRSB - Красэсб ао<br>
+KRSBP - Красэсб ап<br>
+KUBE - РСетКубань<br>
+KUZB - КузнецкийБ<br>
+KZOS - ОргСинт ао<br>
+KZOSP - ОргСинт ап<br>
+LEAS - Европлан<br>
+LENT - Лента ао<br>
+LKOH - ЛУКОЙЛ<br>
+LMBZ - Ламбумиз<br>
+LNZL - Лензолото<br>
+LNZLP - Лензол. ап<br>
+ABIO - iАРТГЕН ао<br>
+ABRD - АбрауДюрсо<br>
+ACKO - АСКО ао<br>
+AFKS - Система ао<br>
+AFLT - Аэрофлот<br>
+AGRO - AGRO-гдр<br>
+AKRN - Акрон<br>
+ALRS - АЛРОСА ао<br>
+AMEZ - АшинскийМЗ<br>
+APRI - АПРИ<br>
+APTK - Аптеки36и6<br>
+AQUA - ИНАРКТИКА<br>
+ARSA - Арсагера<br>
+ASSB - АстрЭнСб<br>
+ASTR - Астра ао<br>
+AVAN - Авангрд-ао<br>
+BANE - Башнефт ао<br>
+BANEP - Башнефт ап<br>
+BELU - НоваБев ао<br>
+BISVP - БашИнСв ап<br>
+BRZL - БурЗолото<br>
+BSPB - БСП ао<br>
+BSPBP - БСП ап<br>
+CARM - СТГ<br>
+CBOM - МКБ ао<br>
+CHGZ - РН-ЗапСиб<br>
+CHKZ - ЧКПЗ ао<br>
+CHMF - СевСт-ао<br>
+CHMK - ЧМК ао<br>
+CIAN - CIAN-адр<br>
+CNTL - Телеграф<br>
+CNTLP - Телеграф-п<br>
+DATA - iАренадата<br>
+DELI - iКаршеринг<br>
+DIAS - iДиасофт<br>
+DIOD - ЗаводДИОД<br>
+DVEC - ДЭК ао<br>
+DZRD - ДонскЗР<br>
+DZRDP - ДонскЗР п<br>
+EELT - ЕвроЭлтех<br>
+ELFV - ЭЛ5Энер ао<br>
+ELMT - Элемент<br>
+ENPG - ЭН+ГРУП ао<br>
+ETLN - ETLN-гдр<br>
+EUTR - ЕвроТранс<br>
+FEES - Россети<br>
+FESH - ДВМП ао<br>
+FIXP - FIXP-гдр<br>
+FLOT - Совкомфлот<br>
+GAZC - ГАЗКОН-ао<br>
+GAZP - ГАЗПРОМ ао<br>
+GAZS - ГАЗ-сервис<br>
+GAZT - ГАЗ-Тек ао<br>
+GCHE - ЧеркизГ-ао<br>
+GECO - iГЕНЕТИКО<br>
+GEMA - iММЦБ ао<br>
+GEMC - МКПАО ЮМГ<br>
+GMKN - ГМКНорНик<br>
+GTRK - ГТМ ао<br>
+HEAD - Хэдхантер<br>
+HIMCP - Химпром ап<br>
+HNFG - ХЭНДЕРСОН<br>
+HYDR - РусГидро<br>
+IGST - Ижсталь2ао<br>
+IGSTP - Ижсталь ап<br>
+INGR - ИНГРАД ао<br>
+IRAO - ИнтерРАОао<br>
+IRKT - Яковлев-3<br>
+IVAT - iИВА<br>
+JNOS - Славн-ЯНОС<br>
+JNOSP - Слав-ЯНОСп<br>
+KAZT - Куйбазот<br>
+KAZTP - Куйбазот-п<br>
+KBSB - ТНСэКубань<br>
+KCHE - КамчатЭ ао<br>
+KCHEP - КамчатЭ ап<br>
+KGKC - КурганГКао<br>
+KGKCP - КурганГКап<br>
+KLSB - КалужскСК<br>
+KLVZ - Кристалл<br>
+KMAZ - КАМАЗ<br>
+KMEZ - КМЗ<br>
+KOGK - КоршГОК ао<br>
+KRKN - СаратНПЗ<br>
+KRKNP - СаратНПЗ-п<br>
+KRKOP - ТКЗКК ап<br>
+KROT - КрасОкт-ао<br>
+KROTP - КрасОкт-1п<br>
+KRSB - Красэсб ао<br>
+KRSBP - Красэсб ап<br>
+KUBE - РСетКубань<br>
+KUZB - КузнецкийБ<br>
+KZOS - ОргСинт ао<br>
+KZOSP - ОргСинт ап<br>
+LEAS - Европлан<br>
+LENT - Лента ао<br>
+LKOH - ЛУКОЙЛ<br>
+LMBZ - Ламбумиз<br>
+LNZL - Лензолото<br>
+LNZLP - Лензол. ап<br>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 </section>
+
 </body>
 </html>
