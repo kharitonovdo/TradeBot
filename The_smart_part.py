@@ -38,18 +38,14 @@ def comparison(dt, mon):
 
 
 def main(dn, patern='SBERP'.replace(' ','')):
-    print(prise(comparison(dn, 3), comparison(dn, 2), patern))
     candle3 = prise(comparison(dn, 3), comparison(dn, 2), patern)[:-1]
     candle2 = prise(comparison(dn, 2), comparison(dn, 1), patern)[:-1]
     candle1 = prise(comparison(dn, 1), comparison(dn, 0), patern)
     name = candle1[-1].replace(' ', '')
-    candle1 = candle1[:-1]
     print(candle3, candle2, candle1)
-    if candle3[0] > candle2[0] and candle3[0] > candle1[0] or candle3[1] > candle1[1]:
+    candle1 = candle1[:-1]
+    if candle3[1] - candle3[0] < 0 and candle2[1] - candle2[0] < 0 and candle2[1] - candle2[0] < 0:
         return 'Нисходящий тренд', name
-    if abs(candle3[0] - candle2[0]) <= (candle3[0] // 5) and abs(candle2[0] - candle1[0]) <= (candle3[0] // 5):
-        return 'Боковой тренд', name
-    return 'Восходящий тренд', name
-
-
-print(main(dt_now))
+    if candle3[1] - candle3[0] > 0 and candle2[1] - candle2[0] > 0 and candle2[1] - candle2[0] > 0:
+        return 'Восходящий тренд', name
+    return 'Боковой тренд', name
